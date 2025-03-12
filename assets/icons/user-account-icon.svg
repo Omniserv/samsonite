@@ -1,0 +1,23 @@
+<svg class="brxe-icon" id="brxe-ulxuhy" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve" width="20"  height="20" >
+<symbol id="icon-profile_00000176742829811597364330000011632374501792131464_" viewBox="-8.8 -10 17.6 20">
+	<path d="M0,0.6c-2.9,0-5.3-2.4-5.3-5.3S-2.9-10,0-10s5.3,2.4,5.3,5.3S2.9,0.6,0,0.6z M0-8.8c-2.2,0-4.1,1.9-4.1,4.1S-2.2-0.6,0-0.6
+		s4.1-1.9,4.1-4.1S2.2-8.8,0-8.8z M8.8,10H-8.8V7.6c0-3.3,2.6-5.9,5.9-5.9h5.9c3.3,0,5.9,2.6,5.9,5.9V10z M-7.6,8.8H7.6V7.6
+		c0-2.6-2.1-4.7-4.7-4.7h-5.9c-2.6,0-4.7,2.1-4.7,4.7V8.8z"></path>
+</symbol>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="1.2" width="17.7" height="20"></rect>
+	<rect id="SVGID_1_" x="1.2" width="17.7" height="20"></rect><symbol id="icon-profile_00000176742829811597364330000011632374501792131464_" viewBox="-8.8 -10 17.6 20">
+	<path d="M0,0.6c-2.9,0-5.3-2.4-5.3-5.3S-2.9-10,0-10s5.3,2.4,5.3,5.3S2.9,0.6,0,0.6z M0-8.8c-2.2,0-4.1,1.9-4.1,4.1S-2.2-0.6,0-0.6
+		s4.1-1.9,4.1-4.1S2.2-8.8,0-8.8z M8.8,10H-8.8V7.6c0-3.3,2.6-5.9,5.9-5.9h5.9c3.3,0,5.9,2.6,5.9,5.9V10z M-7.6,8.8H7.6V7.6
+		c0-2.6-2.1-4.7-4.7-4.7h-5.9c-2.6,0-4.7,2.1-4.7,4.7V8.8z"></path>
+</symbol></defs>
+	<clipPath id="SVGID_00000138554549981931533980000017910656673864515749_">
+		<use xlink:href="#SVGID_1_" style="overflow:visible;"></use>
+	</clipPath>
+	<g style="clip-path:url(#SVGID_00000138554549981931533980000017910656673864515749_);">
+		
+			<use xlink:href="#icon-profile_00000176742829811597364330000011632374501792131464_" width="17.6" height="20" id="icon-profile" x="-8.8" y="-10" transform="matrix(1 0 0 1 10 10)" style="overflow:visible;"></use>
+	</g>
+</g>
+</svg>

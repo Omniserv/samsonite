@@ -1,0 +1,13 @@
+<div class="account-login">
+    <h3>Sign In</h3>
+    <form action="{{urls.auth.login}}" method="post">
+        <label for="email">Email</label>
+        <input type="email" name="login_email" id="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="login_pass" id="password" required>
+
+        <button type="submit" class="button button-primary">Login</button>
+    </form>
+    <p>New customer? <a href="{{urls.auth.create_account}}">Create an account</a></p>
+</div>

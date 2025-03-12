@@ -1,0 +1,5 @@
+node_modules/
+.stencil/
+.cache/
+config.json
+secrets.stencil.json

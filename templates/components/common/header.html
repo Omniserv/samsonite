@@ -1,0 +1,115 @@
+<header class="header sticky-header" role="banner">
+    <!-- ==================== TOP BAR ==================== -->
+    <div class="top-bar">
+        <ul class="top-bar-list">
+            <li class="top-bar-item">
+                <img src="{{cdn 'icons/returns-refunds-icon.svg'}}" alt="Returns Icon" class="top-bar-icon" />
+                RETURNS ARE FREE
+            </li>
+            <li class="top-bar-item">
+                <img src="{{cdn 'icons/delivery-icon.svg'}}" alt="Delivery Icon" class="top-bar-icon" />
+                FAST FREE STANDARD DELIVERY (3 DAYS) OR EXPRESS FOR R90
+            </li>
+            <li class="top-bar-item">
+                <img src="{{cdn 'icons/secure-payment-icon.svg'}}" alt="Secure Payment Icon" class="top-bar-icon" />
+                SECURE PAYMENT
+            </li>
+        </ul>
+    </div>
+
+    <!-- ==================== LOGO ROW ==================== -->
+    <div class="logo-row">
+        <!-- Left: Mobile Menu Toggle -->
+        <div class="logo-row-left">
+            <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+                <span class="mobileMenu-toggleIcon">Toggle menu</span>
+            </a>
+        </div>
+
+        <!-- Center: Store Logo -->
+        <div class="logo-row-center">
+            {{#if page_type '===' 'default'}}
+            <h1 class="header-logo">
+                <img src="{{cdn 'icons/samsonite-logo.svg'}}" alt="Samsonite" class="logo-img" />
+            </h1>
+            {{else}}
+            <div class="header-logo">
+                <img src="{{cdn 'icons/samsonite-logo.svg'}}" alt="Samsonite" class="logo-img" />
+            </div>
+            {{/if}}
+        </div>
+
+        <!-- Right: Store Locator, User Account, Cart -->
+        <div class="logo-row-right">
+            <a href="#" class="utility-icon-link" aria-label="Store Locator">
+                <img src="{{cdn 'icons/store-locator-icon.svg'}}" alt="Store Locator" class="utility-icon" />
+            </a>
+
+            <a href="#" class="utility-icon-link user-account-trigger" aria-label="User Account">
+                <img src="{{cdn 'icons/user-account-icon.svg'}}" alt="User Account" class="utility-icon" />
+            </a>
+
+            <a href="#" class="utility-icon-link cart-trigger" aria-label="Cart">
+                <img src="{{cdn 'icons/cart-icon.svg'}}" alt="Cart" class="utility-icon" />
+                <span class="cart-count">{{#if cart.quantity}}{{cart.quantity}}{{else}}0{{/if}}</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN NAV ROW ==================== -->
+    <nav class="main-nav" id="menu" data-menu>
+        <!-- Left: Search Field -->
+        <div class="nav-left">
+            <form action="{{urls.search}}" method="get" class="search-form">
+                <label for="search-input" class="sr-only">Search</label>
+                <input id="search-input" type="search" name="q" placeholder="Search" class="search-input" />
+                <button type="submit" class="search-button" aria-label="Submit Search">
+                    <img src="{{cdn 'icons/search-icon.svg'}}" alt="Search Icon" class="search-icon" />
+                </button>
+            </form>
+
+            <!-- Search Dropdown -->
+            <div class="search-dropdown">
+                <div class="search-results">
+                    <h4>SEARCH RESULTS (<span id="result-count">0</span>)</h4>
+                    <div class="search-results-slider">
+                        <!-- Dynamic search results will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Standard BigCommerce Navigation Menu -->
+        <div class="nav-center">
+            {{> components/common/navigation-menu}}
+        </div>
+
+        <!-- Right: Custom Menu -->
+        <div class="nav-right">
+            <ul class="custom-menu">
+                <li><a href="#">Services</a></li>
+                <li><a href="#">The Brand</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== OFFCANVAS CART PREVIEW ==================== -->
+    <div id="cart-offcanvas" class="offcanvas">
+        <div class="offcanvas-content">
+            <button class="offcanvas-close">✕</button>
+            {{> components/common/cart-preview}}
+        </div>
+    </div>
+
+    <!-- ==================== OFFCANVAS USER ACCOUNT ==================== -->
+    <div id="account-offcanvas" class="offcanvas">
+        <div class="offcanvas-content">
+            <button class="offcanvas-close">✕</button>
+            {{#if customer}}
+            {{> components/common/navigation}}
+            {{else}}
+            {{> components/common/auth-form}}
+            {{/if}}
+        </div>
+    </div>
+</header>

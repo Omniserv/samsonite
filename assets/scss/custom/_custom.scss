@@ -1,0 +1,774 @@
+// ------------------------------
+// CUSTOM STYLING BEGINS
+// ------------------------------
+
+@font-face {
+    font-family: 'GT America';
+    src: url('assets/fonts/GT-America-Standard-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('assets/fonts/GT-America-Standard-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('assets/fonts/GT-America-Standard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('assets/fonts/GT-America-Standard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Apply the Font */
+body {
+    font-family: 'GT America', sans-serif;
+}
+
+// ------------------------------
+// GLOBAL
+
+body {
+    p {}
+
+    ul {}
+
+    ol {}
+
+    h1 {}
+
+    h2 {}
+
+    h3 {}
+
+    h4 {}
+
+    h5 {}
+
+    h6 {}
+}
+
+// ------------------------------
+// HEADER
+
+.header {}
+
+/***************************************************
+  General / Utility
+****************************************************/
+.header,
+.top-bar,
+.logo-row,
+.main-nav {
+    box-sizing: border-box;
+    font-family: 'GT America', Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.navPages-action {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nav-center a {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    padding-bottom: 0;
+    /* Prevents shifting */
+    width: max-content;
+    /* Ensures it only takes up the text width */
+}
+
+.nav-center a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    /* Moves the underline to touch the bottom of the header */
+    width: 100%;
+    /* Ensures underline matches text width */
+    height: 4px;
+    /* Thickness of the underline */
+    background-color: black;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-center a:hover::after,
+.nav-center a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* Screen-reader only */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+/***************************************************
+  Sticky Header
+****************************************************/
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/***************************************************
+  Top Bar (Black)
+****************************************************/
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+.top-bar-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+}
+
+.top-bar-icon {
+    width: 18px;
+    height: auto;
+    margin-right: 0.5rem;
+}
+
+/***************************************************
+  Logo Row (White)
+****************************************************/
+.logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Left: Mobile Menu Toggle */
+.logo-row-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Center: Store Logo */
+.logo-row-center {
+    flex: 1;
+    text-align: center;
+}
+
+/* Right: Utility Icons */
+.logo-row-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Menu Toggle (hidden on desktop by default) */
+.mobileMenu-toggle {
+    display: none;
+    margin-right: 1rem;
+}
+
+.header-logo {
+    margin: 0;
+}
+
+.logo-img {
+    max-height: 40px;
+    height: auto;
+}
+
+/* Utility icons */
+.utility-icon-link {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.utility-icon {
+    width: 24px;
+    height: auto;
+}
+
+/***************************************************
+  OFFCANVAS STYLES (✅ Fixed Placement)
+****************************************************/
+.offcanvas {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Hide off-screen */
+    width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 10000;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.offcanvas.open {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.offcanvas-content {
+    padding: 20px;
+}
+
+.offcanvas-close {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/***************************************************
+  Main Nav Row (White)
+****************************************************/
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+}
+
+/* Left: Search Field */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.9rem;
+}
+
+.search-button {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.search-icon {
+    width: 16px;
+    height: auto;
+}
+
+/* Center: Standard BC Navigation */
+.nav-center {
+    text-align: center;
+}
+
+/* Right: Custom Menu */
+.nav-right .custom-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right .custom-menu li {
+    margin-left: 1rem;
+}
+
+.nav-right .custom-menu li a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/*********************
+  HEADER CENTER ALIGNMENT FIX
+**********************/
+.logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Ensures everything is centered */
+    background-color: #fff;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    /* Needed for absolute positioning */
+}
+
+/* Center: Store Logo */
+.logo-row-center {
+    flex: 1;
+    text-align: center;
+}
+
+/* Adjust logo to prevent stretching */
+.header-logo {
+    display: inline-block;
+    /* Ensures it behaves like a block but doesn't stretch */
+}
+
+/* Left: Mobile Menu Toggle */
+.logo-row-left {
+    position: absolute;
+    left: 1rem;
+}
+
+/* Right: Utility Icons (Store Locator, User, Cart) */
+.logo-row-right {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/*********************
+  NAVIGATION MENU CENTERING
+**********************/
+.main-nav {
+    display: flex;
+    justify-content: center;
+    /* Centers the menu */
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+}
+
+/* Standard BigCommerce Navigation */
+.nav-center {
+    text-align: center;
+    flex: none;
+    /* Prevents flex from stretching */
+}
+
+/* Ensures search is left-aligned */
+.nav-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Ensures custom menu is right-aligned */
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/***************************************************
+  CART COUNT STYLES
+****************************************************/
+.cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/*********************
+  CART COUNT POSITION FIX
+**********************/
+.utility-icon-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*********************
+  SEARCH FIELD STYLING (ICON AT START)
+**********************/
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    /* Set exact width */
+    border-bottom: 1px solid #ccc;
+    /* Thin underline */
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 10px 8px 35px;
+    /* Left padding to prevent overlap with icon */
+    background: transparent;
+    /* Ensures no background color */
+}
+
+.search-button {
+    position: absolute;
+    left: 0;
+    /* Aligns search icon to the start */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 18px;
+    height: auto;
+    opacity: 0.6;
+}
+
+/***************************************************
+  SEARCH DROPDOWN
+****************************************************/
+.search-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.search-form:focus-within .search-dropdown {
+    display: block;
+}
+
+.search-results-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+/***************************************************
+  RESPONSIVE BREAKPOINTS
+****************************************************/
+/* Adjust breakpoints as needed */
+@media (max-width: 991px) {
+
+    /* Top bar items centered */
+    .top-bar-list {
+        justify-content: center;
+    }
+
+    /* Show mobile toggle */
+    .mobileMenu-toggle {
+        display: inline-flex;
+    }
+
+    /* Ensure logo row stays aligned */
+    .logo-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo-row-left,
+    .logo-row-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-row-center {
+        flex: 2;
+        text-align: center;
+    }
+
+    /* Hide main nav horizontal layout */
+    .main-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Stack top bar items */
+    .top-bar-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-bar-item {
+        margin: 0.25rem 0;
+    }
+
+    /* Adjust logo row stacking */
+    .logo-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-row-left,
+    .logo-row-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+}
+
+// ------------------------------
+// FIXES & REFINEMENTS
+// ------------------------------
+
+// Adjusted Header Padding & Alignment
+.header,
+.top-bar,
+.logo-row,
+.main-nav {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Ensure Sticky Header Behavior
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+// Top Bar Adjustments
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+}
+
+// Align Navigation Menu & Logo Properly
+.logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+// Center Logo
+.logo-row-center {
+    flex: 1;
+    text-align: center;
+}
+
+.header-logo img {
+    max-height: 36px;
+    height: auto;
+}
+
+// Right-Aligned Icons (Cart, User, Store Locator)
+.logo-row-right {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+// Cart Counter Fix
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e60000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+// Offcanvas Behavior Fixes
+.offcanvas {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 10000;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.offcanvas.open {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+// Search Field Adjustments
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    padding: 8px 10px 8px 35px;
+    background: transparent;
+}
+
+.search-button {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 16px;
+    height: auto;
+    opacity: 0.6;
+}
+
+// Responsive Adjustments
+@media (max-width: 991px) {
+    .top-bar-list {
+        justify-content: center;
+    }
+
+    .logo-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo-row-left,
+    .logo-row-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-row-center {
+        flex: 2;
+        text-align: center;
+    }
+
+    .main-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-bar-item {
+        margin: 0.25rem 0;
+    }
+
+    .logo-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-row-left,
+    .logo-row-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+}
